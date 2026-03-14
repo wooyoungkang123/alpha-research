@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.ipynb_checkpoints/
+build/
+dist/
+*.egg-info/
+.venv/
+data/cache/*
+!data/cache/.gitkeep
+outputs/*
+!outputs/.gitkeep
+!outputs/figures/
+outputs/figures/*
+!outputs/figures/equity_curve.png
+!outputs/figures/leg_contributions.png
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
+.env.local
