@@ -1,0 +1,41 @@
+[data]
+source = "synthetic"
+start_date = "2020-01-01"
+end_date = "2024-12-31"
+benchmark = "SPY"
+synthetic_seed = 7
+synthetic_tickers = 60
+min_history_days = 252
+min_price = 5.0
+min_median_dollar_volume = 10000000.0
+
+[features]
+winsorize_quantiles = [0.02, 0.98]
+target_horizons = [5, 10]
+benchmark_window = 60
+volatility_window = 20
+
+[split]
+validation_start = "2022-01-03"
+test_start = "2023-01-03"
+retrain_frequency_days = 21
+min_train_observations = 252
+
+[model]
+model_type = "ridge"
+target_column = "target_return_5d"
+ridge_alpha = 2.0
+
+[portfolio]
+long_quantile = 0.10
+short_quantile = 0.10
+rebalance_frequency_days = 5
+sector_neutral = true
+beta_neutral = true
+min_names_per_side = 5
+
+[backtest]
+transaction_cost_bps = 10.0
+annualization_factor = 252
+benchmark_column = "benchmark_return"
+regime_vol_window = 20
